@@ -1,0 +1,52 @@
+name: finance
+
+services:
+  postgres:
+    image: postgres:18-alpine
+    container_name: finance-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+    volumes:
+      - ../db-volume:/var/lib/postgresql
+
+  redis:
+    image: redis:alpine
+    container_name: finance-redis
+    ports:
+      - "6379:6379"
+
+  mock-server:
+    image: melonhong/finance-mock-server:2.0.1
+    container_name: finance-mock-server
+    ports:
+      - "8081:8081"
+
+  backend:
+    image: melonhong/finance-backend:1.0.1
+    container_name: finance-backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+      - redis
+      - mock-server
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/postgres
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 1234
+      SPRING_REDIS_HOST: redis
+      SPRING_REDIS_PORT: 6379
+      MOCK_SERVER_URL: http://mock-server:8081
+      DART_API_KEY: ${DART_API_KEY}
+
+  frontend:
+    image: melonhong/finance-frontend:1.0.2
+    container_name: finance-frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend

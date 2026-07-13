@@ -100,7 +100,7 @@ docker compose down -v
 
 ## 6. 장애 시뮬레이션 및 복구 검증 시나리오
 
-1. **Frontend 대시보드(http://localhost:5173)**에 접속합니다.
+1. Frontend 대시보드(http://localhost:5173)에 접속합니다.
 2. DART API 장애 유형 중 **Rate Limit (429)** 혹은 **Timeout (Slow Response)** 모드를 활성화시킵니다.
 3. 데이터 수집 요청을 발생시킵니다.
 4. **상태 변화 관제**:

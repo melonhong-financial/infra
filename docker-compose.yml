@@ -26,7 +26,8 @@ services:
       - "8081:8081"
 
   backend:
-    image: melonhong/finance-backend:1.0.1
+    build:
+      context: ../backend
     container_name: finance-backend
     ports:
       - "8080:8080"
@@ -44,7 +45,10 @@ services:
       DART_API_KEY: ${DART_API_KEY}
 
   frontend:
-    image: melonhong/finance-frontend:1.0.2
+    build:
+      context: ../frontend
+      args:
+        - VITE_API_URL=http://${VM_IP:localhost}:8080
     container_name: finance-frontend
     ports:
       - "5173:80"

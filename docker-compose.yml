@@ -50,3 +50,6 @@ services:
       - "5173:80"
     depends_on:
       - backend
+    environment:
+      - VITE_API_URL=http://finance-backend
+

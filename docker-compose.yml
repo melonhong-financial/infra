@@ -26,7 +26,7 @@ services:
       - "8081:8081"
 
   backend:
-    image: melonhong/finance-backend:1.0.2
+    image: melonhong/finance-backend:1.1.0
     container_name: finance-backend
     ports:
       - "8080:8080"

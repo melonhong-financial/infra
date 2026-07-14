@@ -3,7 +3,7 @@
 ### 🔗 배포 서버 접속 URL
 👉 **[접속 URL](http://129.225.195.103:5173/)** *(향후 인프라 사정에 따라 접속이 제한되거나 주소가 변경될 수 있습니다.)*
 
-> 🎬 **[DART 장애 복구 시뮬레이션 테스트 영상 보기](https://youtu.be/qxIa1QvBxnA)**
+🎬 **[DART 장애 복구 시뮬레이션 테스트 영상 보기](https://youtu.be/qxIa1QvBxnA)**
 
 본 저장소는 프로젝트 전체 서비스(Frontend, Backend, Mock Server, PostgreSQL, Redis)를 Docker Compose를 사용하여 단일 명령어로 손쉽게 기동하고 관리할 수 있도록 설계된 인프라 및 설정 전용 저장소입니다.
 

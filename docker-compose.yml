@@ -48,7 +48,7 @@ services:
     build:
       context: ../frontend
       args:
-        - VITE_API_URL=http://${VM_IP:localhost}:8080
+        - VITE_API_URL=http://${VM_IP:-localhost}:8080
     container_name: finance-frontend
     ports:
       - "5173:80"

@@ -44,7 +44,7 @@ services:
       DART_API_KEY: ${DART_API_KEY}
 
   frontend:
-    image: melonhong/finance-frontend:1.0.3
+    image: melonhong/finance-frontend:1.0.2
     container_name: finance-frontend
     ports:
       - "5173:80"

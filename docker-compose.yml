@@ -44,12 +44,12 @@ services:
       DART_API_KEY: ${DART_API_KEY}
 
   frontend:
-    image: melonhong/finance-frontend:1.0.2
+    image: melonhong/finance-frontend:1.0.3
     container_name: finance-frontend
     ports:
       - "5173:80"
     depends_on:
       - backend
-    environment:
-      VITE_API_URL: http://finance-backend:8080
+    volumes:
+      - ./default.conf:/etc/nginx/conf.d/default.conf
 
